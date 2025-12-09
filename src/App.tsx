@@ -9,7 +9,7 @@ import NoPage from "./pages/NoPage";
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/AI-Component-Generator">
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/" element={<NoPage/>} />
