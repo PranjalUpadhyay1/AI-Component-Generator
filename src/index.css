@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    /* Optional: Add box-sizing here if you want it globally */
+    box-sizing: border-box; 
+  }
+}
