@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # The branch where your code is stored
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Adjust to match your project's Node.js version
+
+      - name: Install dependencies
+        run: npm install  # Install your project dependencies
+
+      - name: Build the project
+        run: npm run build  # Build command for your project
+        env:
+          REACT_APP_API_KEY: ${{ secrets.API_KEY }}  # Pass the API key from the secret
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub authentication
+          publish_dir: ./build  # Directory of the built project
+          publish_branch: gh-pages  # Specify the branch to deploy to
