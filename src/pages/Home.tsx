@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import "./home.css";
 
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyCd6VcU6Is5Kk3HJbCdU02-kHHinlkNuZw",
+  apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY || "",
 });
 
 interface OptionType {
