@@ -24,11 +24,11 @@ jobs:
       - name: Build the project
         run: npm run build  # Build command for your project
         env:
-          REACT_APP_API_KEY: ${{ secrets.API_KEY }}  # Pass the API key from the secret
+          REACT_APP_API_KEY: ${{ secrets.gemini_api_key }}  # Pass the API key from the secret
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub authentication
-          publish_dir: ./build  # Directory of the built project
+          publish_dir: ./dist  # Directory of the built project
           publish_branch: gh-pages  # Specify the branch to deploy to
